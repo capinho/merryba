@@ -150,4 +150,4 @@ LOGIN_URL = '/login'
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
-django_on_heroku.settings(locals())
+#django_on_heroku.settings(locals())
