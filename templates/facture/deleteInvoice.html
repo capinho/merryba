@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Liste Clients</h2>
+
+                    </div>            
+                </div>
+            </div>
+
+            <form action="{% url 'delete_invoice' i.id %}" method="POST">
+                {% csrf_token %}
+                <h2>Etes vous sures de vouloir supprimer cet facture?</h2>
+				<a class="btn btn-warning" href="{% url 'allinvoices' %}">Annuler</a>
+
+				<input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}
+

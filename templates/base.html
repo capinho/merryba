@@ -1,0 +1,110 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>:: Merry :: Home</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Lucid Bootstrap 4x Admin Template">
+<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+<link rel="icon" href="{% static 'image/favicon.ico' %}" type="image/x-icon">
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/vendor/chartist/css/chartist.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor/toastr/toastr.min.css' %}">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="{% static 'light/assets/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'light/assets/css/color_skins.css' %}">
+
+{% block css %}
+{% endblock css %}
+
+</head>
+<body class="theme-cyan">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img src="{% static 'assets/images/logo-icon.svg' %}" width="48" height="48" alt="Lucid"></div>
+        <p>Please wait...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
+            </div>
+
+            <div class="navbar-brand">
+                <a href="{% url 'home' %}"><img src="{% static 'image/imb1.jpg' %}" alt="Lucid Logo" width="20px" height="30px" class="img-responsive logo"></a>                
+            </div>
+            
+            <div class="navbar-right">
+                {% comment %} <form id="navbar-search" class="navbar-form search-form">
+                    <input value="" class="form-control" placeholder="Search here..." type="text">
+                    <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                </form>                {% endcomment %}
+
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav">                        
+                        <li><a href="app-events.html" class="icon-menu d-none d-sm-block d-md-none d-lg-block"><i class="icon-calendar"></i></a></li>
+                        <li><a href="{% url 'logout' %}" class="icon-menu"><i class="icon-login"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="left-sidebar" class="sidebar">
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <img src="{% static 'assets/images/user.jpeg' %}" class="rounded-circle user-photo" alt="User Profile Picture">
+                <div class="dropdown">
+                    <span>Bienvenue,</span>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{user.get_full_name}}</strong></a>                    
+                    <ul class="dropdown-menu dropdown-menu-right account animated flipInY">
+                        {% comment %} <li><a href="page-profile2.html"><i class="icon-user"></i>My Profile</a></li>
+                        <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+                        <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li> {% endcomment %}
+                        <li class="divider"></li>
+                        <li><a href="{% url 'logout' %}"><i class="icon-power"></i>Logout</a></li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+                {% include 'nav.html' %}          
+        </div>
+    </div>
+
+    {%block content%}
+    {% endblock content %}
+    
+</div>
+
+    <!-- Javascript -->
+    <script src="{% static 'light/assets/bundles/libscripts.bundle.js' %}"></script>
+    <script src="{% static 'light/assets/bundles/vendorscripts.bundle.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/toastr/toastr.js' %}"></script>
+    <script src="{% static 'light/assets/bundles/knob.bundle.js' %}"></script> <!-- Jquery Knob-->
+
+    <script src="{% static 'light/assets/bundles/mainscripts.bundle.js' %}"></script>
+    {% block javascript %}
+        <script src="{% static 'light/assets/bundles/chartist.bundle.js' %}"></script>
+        <script src="{% static 'light/assets/js/index.js' %}"></script>
+
+    {%endblock%}
+</body>
+</html>

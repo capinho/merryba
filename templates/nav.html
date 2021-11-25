@@ -1,0 +1,33 @@
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#hr_menu">Merry</a></li>
+            </ul>
+                
+            <!-- Tab panes -->
+            <div class="tab-content p-l-0 p-r-0">
+                <div class="tab-pane animated fadeIn active" id="hr_menu">
+                    <nav class="sidebar-nav">
+                        <ul class="main-menu metismenu">
+                            <li class="active"><a href="{% url 'home' %}"><i class="icon-speedometer"></i><span>Merry Dashboard</span></a></li>
+                            {% comment %} <li><a href="app-events.html"><i class="icon-calendar"></i>Events</a></li> {% endcomment %}
+                            <li>
+                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Clients</span></a>
+                                <ul>
+                                    <li><a href="{% url 'allClient' %}">Tous les Clients</a></li>
+                                    <li><a href="{% url 'addClient' %}">Ajouter Clients</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#Accounts" class="has-arrow"><i class="icon-briefcase"></i><span>Facture</span></a>
+                                <ul>
+                                    <li><a href="{% url 'allinvoices' %}">Liste Factures</a></li>
+                                    {% comment %} <li><a href="acc-expenses.html">Expenses</a></li> {% endcomment %}
+                                    <li><a href="{% url 'createInvoice' %}">Creer Facture</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'users' %}"><i class="icon-user"></i>Utilisateurs</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>

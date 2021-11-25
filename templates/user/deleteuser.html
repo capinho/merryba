@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Supprimer Utilisateur</h2>
+
+                    </div>            
+                </div>
+            </div>
+
+            <form action="{% url 'delete_user' user.id %}" method="POST">
+                {% csrf_token %}
+                <h2>Etes vous sures de vouloir supprimer cet utilisateur?</h2>
+				<a class="btn btn-warning" href="{% url 'users' %}">Annuler</a>
+
+				<input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}
+

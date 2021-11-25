@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Facture</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="icon-home"></i></a></li>                            
+                            <li class="breadcrumb-item"> Facture</li>
+                            <li class="breadcrumb-item active">Editer Facture</li>
+                        </ul>
+                    </div>            
+                </div>
+            </div>
+
+            <form action='' method="POST">
+                {% csrf_token %}
+
+                    {{form|crispy}}
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </div>       
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block javascript %}
+{%endblock%}
